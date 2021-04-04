@@ -11,6 +11,12 @@ export default function Header() {
               <Logo />
             </a>
           </li>
+          <li className="main-header__nav--item">
+            <a href="">Login</a>
+          </li>
+          <li className="main-header__nav--item">
+            <a href="">Signup</a>
+          </li>
         </ul>
       </nav>
     </header>
