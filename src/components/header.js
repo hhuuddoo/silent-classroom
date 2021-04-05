@@ -12,9 +12,9 @@ export default function Header(props) {
           <Logo />
         </a>
         <a
-          href=""
+          href="#"
           onClick={() => setHamburgerIsOpen((prev) => !prev)}
-          className={`header__hamburger hide-on-desktop${
+          className={`header__hamburger hide-on-desktop ${
             hamburgerIsOpen ? `header__hamburger--open` : ``
           }`}
         >
@@ -23,7 +23,13 @@ export default function Header(props) {
         </a>
         <div className="header__links hide-on-mobile">
           <a href="">Login</a>
-          <a href="">Signup</a>
+          <a href="">Register</a>
+          <a href="">Create Board</a>
+        </div>
+        <div className="header__menu">
+          <a href="">Create Board</a>
+          <a href="">Register</a>
+          <a href="">Login</a>
         </div>
       </nav>
     </header>

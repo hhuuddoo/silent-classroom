@@ -29,6 +29,7 @@
     position: absolute;
     width: 1.5rem;
     height: 0.75rem;
+    transform-origin: center;
 
     > span {
       display: block;
@@ -37,6 +38,7 @@
       border-radius: 0.625rem;
       width: 100%;
       background-color: $light;
+      transition: all 200ms ease-in-out;
     }
 
     > .hamburger--top {
@@ -46,10 +48,27 @@
     > .hamburger--bottom {
       bottom: 0;
     }
+
+    &.header__hamburger--open {
+      > span {
+        transition: all 200ms ease-in-out;
+
+        &.hamburger--top {
+          top: calc(50% - 0.0625rem);
+          transform: rotate(45deg);
+        }
+
+        &.hamburger--bottom {
+          bottom: calc(50% - 0.0625rem);
+          transform: rotate(-45deg);
+        }
+      }
+    }
   }
 
+  // Desktop header link styles
   &__links {
-    order: 1;
+    margin-left: auto;
   }
 }
 

@@ -84,6 +84,8 @@ a:hover {
   position: absolute;
   width: 1.5rem;
   height: 0.75rem;
+  -webkit-transform-origin: center;
+          transform-origin: center;
 }
 
 .header__hamburger > span {
@@ -93,6 +95,8 @@ a:hover {
   border-radius: 0.625rem;
   width: 100%;
   background-color: #fef8fa;
+  -webkit-transition: all 200ms ease-in-out;
+  transition: all 200ms ease-in-out;
 }
 
 .header__hamburger > .hamburger--top {
@@ -103,9 +107,24 @@ a:hover {
   bottom: 0;
 }
 
+.header__hamburger.header__hamburger--open > span {
+  -webkit-transition: all 200ms ease-in-out;
+  transition: all 200ms ease-in-out;
+}
+
+.header__hamburger.header__hamburger--open > span.hamburger--top {
+  top: calc(50% - 0.0625rem);
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.header__hamburger.header__hamburger--open > span.hamburger--bottom {
+  bottom: calc(50% - 0.0625rem);
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
 .header__links {
-  -webkit-box-ordinal-group: 2;
-      -ms-flex-order: 1;
-          order: 1;
+  margin-left: auto;
 }
 /*# sourceMappingURL=index.css.map */
