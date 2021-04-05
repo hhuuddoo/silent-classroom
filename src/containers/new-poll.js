@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ReactComponent as Add } from "../images/add.svg";
+import { ReactComponent as Minus } from "../images/minus.svg";
 
 import {
   Panel,
@@ -13,18 +14,34 @@ export default function NewPoll() {
   const [answerOptions, setAnswerOptions] = useState([]);
   const [numberOfOptions, setNumberOfOptions] = useState(2);
   const [optionList, setOptionList] = useState({ options: [1, 2] });
+  const [optionUpdateType, setOptionUpdateType] = useState("");
 
-  // <AnswerOptionInput
-  //   id={2}
-  //   answerOptions={answerOptions}
-  //   setAnswerOptions={setAnswerOptions}
-  // />;
+  useEffect(() => {
+    if (optionUpdateType === "ADD") {
+      setOptionList((prev) => ({
+        options: [...prev.options, numberOfOptions],
+      }));
+    } else if (optionUpdateType === "REMOVE") {
+      setOptionList((prev) => {
+        const options = [...prev.options];
+        options.splice(numberOfOptions);
+        return { options: options };
+      });
+    }
+  }, [numberOfOptions, optionUpdateType]);
 
-  const handleButtonPress = () => {
-    setNumberOfOptions((prev) => ++prev);
-    setOptionList((prev) => ({
-      options: [...prev.options, numberOfOptions],
-    }));
+  // Add poll option
+  const addOption = () => {
+    setNumberOfOptions((prev) => prev + 1);
+    setOptionUpdateType("ADD");
+  };
+
+  // Remove most recent option (if there are more than two)
+  const removeOption = () => {
+    if (numberOfOptions > 2) {
+      setNumberOfOptions((prev) => prev - 1);
+      setOptionUpdateType("REMOVE");
+    }
   };
 
   return (
@@ -42,7 +59,8 @@ export default function NewPoll() {
         );
       })}
       <div className="poll-buttons-container">
-        <Add className="button--add-option" onClick={handleButtonPress} />
+        <Add className="button--option-list" onClick={addOption} />
+        <Minus className="button--option-list" onClick={removeOption} />
         <div className="right">
           <span className="button">Cancel</span>
           <span className="button button--cta">Create Poll</span>

@@ -105,16 +105,17 @@ a:hover {
   background-color: transparent;
 }
 
-.button--add-option {
+.button--option-list {
   cursor: pointer;
   height: 1.714rem;
   width: 1.714rem;
+  margin-right: 1rem;
   fill: #fef8fa;
   -webkit-transition: fill 80ms ease-in-out;
   transition: fill 80ms ease-in-out;
 }
 
-.button--add-option:hover {
+.button--option-list:hover {
   fill: #589cec;
 }
 
