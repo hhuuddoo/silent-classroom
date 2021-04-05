@@ -36,6 +36,31 @@ a:hover {
   padding: 0.5rem 1rem;
 }
 
+// Buttons
+.button {
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: 400;
+  padding: 0.25rem 0.875rem;
+  color: $light;
+  transition: color 80ms ease-in-out, background-color 80ms ease-in-out;
+
+  &:hover {
+    color: $blue;
+  }
+}
+
+.button--cta {
+  border: 2px solid $blue;
+  background-color: $blue;
+  border-radius: 3rem;
+  color: $light;
+
+  &:hover {
+    background-color: transparent;
+  }
+}
+
 //Visibility
 .hide-on-mobile {
   @include breakpoint-down(small) {

@@ -22,14 +22,26 @@ export default function Header(props) {
           <span className="hamburger--bottom"></span>
         </a>
         <div className="header__links hide-on-mobile">
-          <a href="">Login</a>
-          <a href="">Register</a>
-          <a href="">Create Board</a>
+          <a className="button" href="">
+            Login
+          </a>
+          <a className="button" href="">
+            Register
+          </a>
+          <a className="button button--cta" href="">
+            Create Board
+          </a>
         </div>
-        <div className="header__menu">
-          <a href="">Create Board</a>
-          <a href="">Register</a>
-          <a href="">Login</a>
+        <div className="header__menu hide-on-desktop">
+          <a className="button button--cta" href="">
+            Create Board
+          </a>
+          <a className="button" href="">
+            Register
+          </a>
+          <a className="button" href="">
+            Login
+          </a>
         </div>
       </nav>
     </header>

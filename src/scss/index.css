@@ -37,6 +37,31 @@ a:hover {
   padding: 0.5rem 1rem;
 }
 
+.button {
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: 400;
+  padding: 0.25rem 0.875rem;
+  color: #fef8fa;
+  -webkit-transition: color 80ms ease-in-out, background-color 80ms ease-in-out;
+  transition: color 80ms ease-in-out, background-color 80ms ease-in-out;
+}
+
+.button:hover {
+  color: #589cec;
+}
+
+.button--cta {
+  border: 2px solid #589cec;
+  background-color: #589cec;
+  border-radius: 3rem;
+  color: #fef8fa;
+}
+
+.button--cta:hover {
+  background-color: transparent;
+}
+
 @media (max-width: 39.9375em) {
   .hide-on-mobile {
     display: none !important;
