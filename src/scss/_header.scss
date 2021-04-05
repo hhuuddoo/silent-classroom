@@ -83,8 +83,13 @@
   // Desktop header link styles
   &__links {
     margin-left: auto;
+
+    :nth-child(2) {
+      margin-right: 0.75rem;
+    }
   }
 
+  // Hamburger menu div styling
   &__menu {
     position: absolute;
     left: -100%;
