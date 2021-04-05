@@ -39,6 +39,14 @@ a:hover {
   margin: 0 auto;
 }
 
+.seperator {
+  width: 100%;
+  height: 1px;
+  background-color: #ccc8c9;
+  display: block;
+  margin: 1rem 0;
+}
+
 .panel-container {
   margin: 0 auto;
   padding: 1rem;
@@ -79,27 +87,21 @@ a:hover {
   background-color: transparent;
 }
 
-.textarea {
+.input {
   font-family: inherit;
   font-size: 1rem;
   font-weight: 700;
+  color: #fef8fa;
+  background-color: transparent;
+  border: none;
   resize: none;
   width: 100%;
   cursor: text;
   outline: none;
 }
 
-.textarea:focus:empty::before {
-  content: "";
-}
-
 .question {
   font-size: 1.25rem;
-}
-
-.question:empty::before {
-  content: "Enter your question here...";
-  color: #ccc8c9;
 }
 
 @media (max-width: 39.9375em) {

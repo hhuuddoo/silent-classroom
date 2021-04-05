@@ -1,5 +1,4 @@
 import { HeaderContainer, NewPoll } from "./containers";
-import { Panel } from "./components";
 
 function App() {
   return (

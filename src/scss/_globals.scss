@@ -38,6 +38,14 @@ a:hover {
   margin: 0 auto;
 }
 
+.seperator {
+  width: 100%;
+  height: 1px;
+  background-color: $lightGrey;
+  display: block;
+  margin: 1rem 0;
+}
+
 .panel-container {
   margin: 0 auto;
   padding: 1rem;
@@ -78,31 +86,21 @@ a:hover {
 }
 
 // Inputs
-.textarea {
+.input {
   font-family: inherit;
   font-size: 1rem;
   font-weight: 700;
+  color: $light;
+  background-color: transparent;
+  border: none;
   resize: none;
   width: 100%;
   cursor: text;
   outline: none;
-
-  // Remove placeholder when input selected
-  &:focus:empty::before {
-    content: "";
-  }
 }
 
 .question {
   font-size: 1.25rem;
-
-  // Add placeholder if no content in input
-  &:empty {
-    &::before {
-      content: "Enter your question here...";
-      color: $lightGrey;
-    }
-  }
 }
 
 //Visibility
