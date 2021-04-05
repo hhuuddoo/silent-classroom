@@ -39,6 +39,11 @@ a:hover {
   margin: 0 auto;
 }
 
+.panel-container {
+  margin: 0 auto;
+  padding: 1rem;
+}
+
 .panel {
   background-color: #1e2229;
   padding: 1rem;
