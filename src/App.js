@@ -1,9 +1,9 @@
-import { Header } from "./components";
+import { HeaderContainer } from "./containers";
 
 function App() {
   return (
     <>
-      <Header />
+      <HeaderContainer />
       <span>App Component</span>
     </>
   );
