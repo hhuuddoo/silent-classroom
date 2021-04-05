@@ -38,6 +38,15 @@ a:hover {
   margin: 0 auto;
 }
 
+.panel {
+  background-color: $greyishBlue;
+  padding: 1rem;
+  max-width: 31.25rem;
+  border-radius: 0.625rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  margin: 0 auto;
+}
+
 // Buttons
 .button {
   display: inline-block;

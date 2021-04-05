@@ -1,4 +1,5 @@
 import { HeaderContainer } from "./containers";
+import { Panel } from "./components";
 
 function App() {
   return (
