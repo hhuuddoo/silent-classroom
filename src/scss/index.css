@@ -80,10 +80,21 @@ a:hover {
   font-weight: 700;
   resize: none;
   width: 100%;
+  cursor: text;
+  outline: none;
+}
+
+.textarea:focus:empty::before {
+  content: "";
 }
 
 .question {
   font-size: 1.25rem;
+}
+
+.question:empty::before {
+  content: "Enter your question here...";
+  color: #ccc8c9;
 }
 
 @media (max-width: 39.9375em) {

@@ -79,10 +79,25 @@ a:hover {
   font-weight: 700;
   resize: none;
   width: 100%;
+  cursor: text;
+  outline: none;
+
+  // Remove placeholder when input selected
+  &:focus:empty::before {
+    content: "";
+  }
 }
 
 .question {
   font-size: 1.25rem;
+
+  // Add placeholder if no content in input
+  &:empty {
+    &::before {
+      content: "Enter your question here...";
+      color: $lightGrey;
+    }
+  }
 }
 
 //Visibility
