@@ -18,10 +18,6 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
-.container {
-  padding: 0.5rem 1rem;
-}
-
 h1,
 h2,
 h3 {
@@ -32,4 +28,23 @@ a,
 a:visited,
 a:hover {
   text-decoration: none;
+  color: inherit;
+}
+
+// Spacing
+.container {
+  padding: 0.5rem 1rem;
+}
+
+//Visibility
+.hide-on-mobile {
+  @include breakpoint-down(small) {
+    display: none !important;
+  }
+}
+
+.hide-on-desktop {
+  @include breakpoint-up(medium) {
+    display: none !important;
+  }
 }
