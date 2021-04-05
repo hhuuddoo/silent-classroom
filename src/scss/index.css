@@ -96,11 +96,10 @@ a:hover {
   border: none;
   resize: none;
   width: 100%;
-  cursor: text;
   outline: none;
 }
 
-.question {
+.input--question {
   font-size: 1.25rem;
 }
 

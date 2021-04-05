@@ -4,7 +4,7 @@ import React from "react";
 export default function QuestionInput({ question, setQuestion }) {
   return (
     <input
-      className="input question"
+      className="input input--question"
       value={question}
       placeholder="Enter a question here..."
       onFocus={({ target }) => (target.placeholder = "")}
