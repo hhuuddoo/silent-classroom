@@ -62,12 +62,30 @@ a:hover {
   margin: 0 auto;
 }
 
+.poll-buttons-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  margin-top: 1rem;
+}
+
+.right {
+  margin-left: auto;
+}
+
 .button {
   display: inline-block;
   font-size: 1rem;
   font-weight: 400;
   padding: 0.25rem 0.875rem;
   color: #fef8fa;
+  cursor: pointer;
   -webkit-transition: color 80ms ease-in-out, background-color 80ms ease-in-out;
   transition: color 80ms ease-in-out, background-color 80ms ease-in-out;
 }
@@ -87,6 +105,19 @@ a:hover {
   background-color: transparent;
 }
 
+.button--add-option {
+  cursor: pointer;
+  height: 1.714rem;
+  width: 1.714rem;
+  fill: #fef8fa;
+  -webkit-transition: fill 80ms ease-in-out;
+  transition: fill 80ms ease-in-out;
+}
+
+.button--add-option:hover {
+  fill: #589cec;
+}
+
 .input {
   font-family: inherit;
   font-size: 1rem;
@@ -101,6 +132,10 @@ a:hover {
 
 .input--question {
   font-size: 1.25rem;
+}
+
+.input--option:not(:first-child) {
+  margin-top: 1rem;
 }
 
 @media (max-width: 39.9375em) {

@@ -60,6 +60,18 @@ a:hover {
   margin: 0 auto;
 }
 
+// Container holding buttons at bottom of poll
+.poll-buttons-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 1rem;
+}
+
+.right {
+  margin-left: auto;
+}
+
 // Buttons
 .button {
   display: inline-block;
@@ -67,6 +79,7 @@ a:hover {
   font-weight: 400;
   padding: 0.25rem 0.875rem;
   color: $light;
+  cursor: pointer;
   transition: color 80ms ease-in-out, background-color 80ms ease-in-out;
 
   &:hover {
@@ -85,6 +98,17 @@ a:hover {
   }
 }
 
+.button--add-option {
+  cursor: pointer;
+  height: 1.714rem;
+  width: 1.714rem;
+  fill: $light;
+  transition: fill 80ms ease-in-out;
+  &:hover {
+    fill: $blue;
+  }
+}
+
 // Inputs
 .input {
   font-family: inherit;
@@ -100,6 +124,12 @@ a:hover {
 
 .input--question {
   font-size: 1.25rem;
+}
+
+.input--option {
+  &:not(:first-child) {
+    margin-top: 1rem;
+  }
 }
 
 //Visibility
