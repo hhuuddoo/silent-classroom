@@ -1,6 +1,11 @@
-import React from "react";
-import { Panel } from "../components";
+import React, { useState } from "react";
+import { Panel, QuestionInput } from "../components";
 
 export default function NewPoll() {
-  return <Panel>Hello</Panel>;
+  const [question, setQuestion] = useState("");
+  return (
+    <Panel>
+      <QuestionInput question={question} setQuestion={setQuestion} />
+    </Panel>
+  );
 }

@@ -74,6 +74,18 @@ a:hover {
   background-color: transparent;
 }
 
+.textarea {
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  resize: none;
+  width: 100%;
+}
+
+.question {
+  font-size: 1.25rem;
+}
+
 @media (max-width: 39.9375em) {
   .hide-on-mobile {
     display: none !important;

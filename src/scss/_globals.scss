@@ -72,6 +72,19 @@ a:hover {
   }
 }
 
+// Inputs
+.textarea {
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  resize: none;
+  width: 100%;
+}
+
+.question {
+  font-size: 1.25rem;
+}
+
 //Visibility
 .hide-on-mobile {
   @include breakpoint-down(small) {

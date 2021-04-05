@@ -1,11 +1,11 @@
-import { HeaderContainer } from "./containers";
+import { HeaderContainer, NewPoll } from "./containers";
 import { Panel } from "./components";
 
 function App() {
   return (
     <>
       <HeaderContainer />
-      <span>App Component</span>
+      <NewPoll />
     </>
   );
 }
