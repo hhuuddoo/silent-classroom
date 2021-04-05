@@ -73,6 +73,12 @@ a:hover {
   fill: #fef8fa;
 }
 
+@media (min-width: 40em) {
+  .header__logo {
+    margin: 0;
+  }
+}
+
 .header__hamburger {
   display: block;
   position: absolute;
@@ -95,5 +101,11 @@ a:hover {
 
 .header__hamburger > .hamburger--bottom {
   bottom: 0;
+}
+
+.header__links {
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
 }
 /*# sourceMappingURL=index.css.map */

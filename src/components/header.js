@@ -13,8 +13,8 @@ export default function Header(props) {
         </a>
         <a
           href=""
-          // onClick={() => setHamburgerIsOpen((prev) => !prev)}
-          className={`header__hamburger ${
+          onClick={() => setHamburgerIsOpen((prev) => !prev)}
+          className={`header__hamburger hide-on-desktop${
             hamburgerIsOpen ? `header__hamburger--open` : ``
           }`}
         >

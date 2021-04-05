@@ -16,6 +16,11 @@
       width: 2rem;
       fill: $light;
     }
+
+    // Style logo for desktop
+    @include breakpoint-up(medium) {
+      margin: 0;
+    }
   }
 
   // Hamburger Styling
@@ -44,7 +49,7 @@
   }
 
   &__links {
-    // Add styling for desktop
+    order: 1;
   }
 }
 
