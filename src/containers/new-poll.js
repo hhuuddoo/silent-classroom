@@ -29,7 +29,7 @@ export default function NewPoll({ setCreateNewPoll }) {
     // setPolls((prev) => [...prev, { question: question, options: options }]);
 
     const poll = { question: question, options: options };
-    alert(poll.question);
+    console.log(poll);
   };
 
   // Update Poll Option Component List

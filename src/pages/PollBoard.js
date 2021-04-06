@@ -12,7 +12,16 @@ export default function PollBoard() {
           setCreateNewPoll={setCreateNewPoll}
         />
         {createNewPoll && <NewPoll setCreateNewPoll={setCreateNewPoll} />}
-        <Poll question="My Question?" />
+        <Poll
+          question="What is 1 + 1?"
+          options={["2", "Window", "1"]}
+          pollId={1}
+        />
+        <Poll
+          question="What is 2 + 2?"
+          options={["2", "Fish", "4"]}
+          pollId={2}
+        />
       </div>
     </>
   );
