@@ -5,17 +5,29 @@ import { ReactComponent as Minus } from "../images/minus.svg";
 import {
   Panel,
   QuestionInput,
-  AnswerOptionInput,
+  PollOptionInput,
   Seperator,
 } from "../components";
 
+// New Poll Panel
 export default function NewPoll() {
-  const [question, setQuestion] = useState("");
-  const [answerOptions, setAnswerOptions] = useState([]);
-  const [numberOfOptions, setNumberOfOptions] = useState(2);
-  const [optionList, setOptionList] = useState({ options: [1, 2] });
-  const [optionUpdateType, setOptionUpdateType] = useState("");
   const OPTION_LIMIT = 10;
+  const [question, setQuestion] = useState(""); // Question for poll
+  const [pollOptions, setPollOptions] = useState([]); // Options for poll
+  const [numberOfOptions, setNumberOfOptions] = useState(2); // Number of options in poll
+  const [optionList, setOptionList] = useState({ options: [1, 2] }); // Option components
+  const [optionUpdateType, setOptionUpdateType] = useState(""); // Holds whether to add or remove option
+
+  // Execute when create poll button is clicked
+  const handleCreatePollClick = () => {
+    const options = [];
+
+    for (let option in pollOptions) {
+      options.push(pollOptions[option]);
+    }
+
+    const poll = { question: question, options: options };
+  };
 
   // Update Poll Options List
   useEffect(() => {
@@ -54,11 +66,11 @@ export default function NewPoll() {
       <Seperator />
       {optionList.options.map((option, idx) => {
         return (
-          <AnswerOptionInput
+          <PollOptionInput
             id={option}
             key={idx}
-            answerOptions={answerOptions}
-            setAnswerOptions={setAnswerOptions}
+            pollOptions={pollOptions}
+            setPollOptions={setPollOptions}
           />
         );
       })}
@@ -77,8 +89,11 @@ export default function NewPoll() {
           onClick={removeOption}
         />
         <div className="right">
-          <span className="button">Cancel</span>
-          <span className="button button--cta">Create Poll</span>
+          <span className="button">Cancel</span>{" "}
+          {/* Get function from higher level component */}
+          <span className="button button--cta" onClick={handleCreatePollClick}>
+            Create Poll
+          </span>
         </div>
       </div>
     </Panel>
