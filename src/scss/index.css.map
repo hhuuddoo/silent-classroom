@@ -7,7 +7,7 @@
         "_mixins.scss",
         "_globals.scss",
         "_header.scss",
-        "_polls.scss"
+        "_add-poll.scss"
     ],
     "names": [],
     "file": "index.css"

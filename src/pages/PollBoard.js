@@ -11,7 +11,8 @@ export default function PollBoard() {
           createNewPoll={createNewPoll}
           setCreateNewPoll={setCreateNewPoll}
         />
-        <NewPoll />
+
+        {createNewPoll && <NewPoll setCreateNewPoll={setCreateNewPoll} />}
       </div>
     </>
   );

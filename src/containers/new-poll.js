@@ -10,7 +10,7 @@ import {
 } from "../components";
 
 // New Poll Panel
-export default function NewPoll() {
+export default function NewPoll({ setCreateNewPoll }) {
   const OPTION_LIMIT = 10;
   const [question, setQuestion] = useState(""); // Question for poll
   const [pollOptions, setPollOptions] = useState([]); // Options for poll
@@ -92,8 +92,12 @@ export default function NewPoll() {
           onClick={removeOption}
         />
         <div className="right">
-          <span className="button hide-on-mobile">Cancel</span>{" "}
-          {/* Get function from higher level component */}
+          <span
+            className="button hide-on-mobile"
+            onClick={() => setCreateNewPoll(false)}
+          >
+            Cancel
+          </span>
           <span className="button button--cta" onClick={handleCreatePollClick}>
             Create Poll
           </span>
