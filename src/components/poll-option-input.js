@@ -1,5 +1,6 @@
 import React from "react";
 
+// Poll Option Input Text Box
 export default function PollOptionInput({ id, pollOptions, setPollOptions }) {
   return (
     <>

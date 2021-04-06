@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { NewPoll } from "../containers";
 
 export default function PollBoard() {
@@ -7,6 +7,7 @@ export default function PollBoard() {
   return (
     <>
       <div className="panel-container">
+        <NewPoll />
         <NewPoll />
         <NewPoll />
       </div>

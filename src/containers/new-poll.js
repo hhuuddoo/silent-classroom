@@ -32,8 +32,6 @@ export default function NewPoll() {
     alert(poll.question);
   };
 
-  console.log(pollOptions);
-
   // Update Poll Option Component List
   useEffect(() => {
     if (optionUpdateType === "ADD") {
