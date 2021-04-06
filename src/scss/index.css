@@ -214,21 +214,6 @@ a:hover {
   background-color: #111f2d;
 }
 
-.header .overlay {
-  position: fixed;
-  top: 3rem;
-  right: 100%;
-  bottom: 0;
-  left: 0;
-  background-color: #111f2d;
-  -webkit-transition: right 250ms ease-in-out;
-  transition: right 250ms ease-in-out;
-}
-
-.header .overlay.hamburger--open {
-  right: 0;
-}
-
 .header nav {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -309,7 +294,7 @@ a:hover {
 }
 
 .header__menu {
-  position: absolute;
+  position: fixed;
   left: -100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -318,9 +303,17 @@ a:hover {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   top: 3rem;
-  -webkit-transition: left 250ms ease-in-out;
-  transition: left 250ms ease-in-out;
+  bottom: 0;
+  right: 100%;
+  padding: 0 1rem;
+  background-color: #111f2d;
+  z-index: 100;
+  -webkit-transition: all 250ms ease-in-out;
+  transition: all 250ms ease-in-out;
 }
 
 .header__menu > a {
@@ -328,7 +321,8 @@ a:hover {
 }
 
 .header__menu.hamburger--open {
-  left: 1rem;
+  left: 0;
+  right: 0;
 }
 
 .add-poll {
@@ -355,7 +349,6 @@ a:hover {
           transform: translateX(-50%);
   border: 2px solid #589cec;
   cursor: pointer;
-  z-index: -1;
   -webkit-transition: background-color 100ms ease-out, fill 100ms ease-out;
   transition: background-color 100ms ease-out, fill 100ms ease-out;
 }
@@ -404,7 +397,6 @@ a:hover {
     -webkit-box-shadow: none;
             box-shadow: none;
     color: #fef8fa;
-    z-index: 1;
     font-weight: 700;
   }
   .add-poll svg {
