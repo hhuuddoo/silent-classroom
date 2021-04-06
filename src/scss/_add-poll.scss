@@ -40,8 +40,6 @@
 
   // Create Poll Button styling for desktop
   @include breakpoint-up(medium) {
-    // transform: translateX(-50%);
-
     position: relative;
     justify-content: flex-start;
     bottom: 0;
@@ -77,11 +75,5 @@
     &.active {
       display: none;
     }
-    // box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-
-    //   &__icon {
-    //     width: 1.5rem;
-    //     height: 1.5rem;
-    //   }
   }
 }
