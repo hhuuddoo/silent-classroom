@@ -5,3 +5,4 @@ export { default as PollOptionInput } from "./poll-option-input";
 export { default as Seperator } from "./seperator";
 export { default as AddPollButton } from "./add-poll-button";
 export { default as Question } from "./question";
+export { default as PollOption } from "./poll-option";
