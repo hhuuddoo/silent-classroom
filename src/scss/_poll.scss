@@ -1,0 +1,10 @@
+.question {
+  display: block;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: $light;
+  border-left: 3px solid transparent;
+  width: 100%;
+  user-select: none;
+  cursor: default;
+}

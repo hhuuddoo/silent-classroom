@@ -2,6 +2,10 @@
 
 For when you ask the class a question and all you get is silence... start a poll!
 
+### ISSUES
+
+- Add poll button appearing over mobile menu
+
 ### TODO
 
 - Add attribution to footer

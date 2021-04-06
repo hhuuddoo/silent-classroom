@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NewPoll } from "../containers";
+import { NewPoll, Poll } from "../containers";
 import { AddPollButton } from "../components";
 
 export default function PollBoard() {
@@ -11,8 +11,8 @@ export default function PollBoard() {
           createNewPoll={createNewPoll}
           setCreateNewPoll={setCreateNewPoll}
         />
-
         {createNewPoll && <NewPoll setCreateNewPoll={setCreateNewPoll} />}
+        <Poll question="My Question?" />
       </div>
     </>
   );
