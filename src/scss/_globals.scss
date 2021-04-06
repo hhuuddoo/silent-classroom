@@ -48,7 +48,7 @@ a:hover {
 
 .panel-container {
   margin: 0 auto;
-  padding: 1rem;
+  padding: 0 1rem;
 }
 
 .panel {
@@ -57,7 +57,7 @@ a:hover {
   max-width: 31.25rem;
   border-radius: 0.625rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  margin: 0 auto;
+  margin: 1rem auto;
 }
 
 // Container holding buttons at bottom of poll
@@ -125,7 +125,7 @@ a:hover {
   color: $light;
   background-color: transparent;
   border: none;
-  border-left: 1px solid transparent;
+  border-left: 3px solid transparent;
   resize: none;
   width: 100%;
   padding-left: 0rem;
@@ -133,13 +133,13 @@ a:hover {
   transition: border-left 50ms ease-out, padding-left 50ms ease-out;
 
   &:focus {
-    border-left: 1px solid $blue;
-    padding-left: 0.3rem;
+    border-left-color: $blue;
+    padding-left: 0.5rem;
   }
 
   &.invalid {
     border-left-color: $red;
-    padding-left: 0.3rem;
+    padding-left: 0.5rem;
   }
 
   &::placeholder {

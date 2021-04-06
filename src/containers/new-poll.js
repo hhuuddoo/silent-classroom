@@ -26,10 +26,15 @@ export default function NewPoll() {
       options.push(pollOptions[option]);
     }
 
+    // setPolls((prev) => [...prev, { question: question, options: options }]);
+
     const poll = { question: question, options: options };
+    alert(poll.question);
   };
 
-  // Update Poll Options List
+  console.log(pollOptions);
+
+  // Update Poll Option Component List
   useEffect(() => {
     if (optionUpdateType === "ADD") {
       setOptionList((prev) => ({

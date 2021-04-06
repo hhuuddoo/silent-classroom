@@ -49,7 +49,7 @@ a:hover {
 
 .panel-container {
   margin: 0 auto;
-  padding: 1rem;
+  padding: 0 1rem;
 }
 
 .panel {
@@ -59,7 +59,7 @@ a:hover {
   border-radius: 0.625rem;
   -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  margin: 0 auto;
+  margin: 1rem auto;
 }
 
 .poll-buttons-container {
@@ -135,7 +135,7 @@ a:hover {
   color: #fef8fa;
   background-color: transparent;
   border: none;
-  border-left: 1px solid transparent;
+  border-left: 3px solid transparent;
   resize: none;
   width: 100%;
   padding-left: 0rem;
@@ -145,13 +145,13 @@ a:hover {
 }
 
 .input:focus {
-  border-left: 1px solid #589cec;
-  padding-left: 0.3rem;
+  border-left-color: #589cec;
+  padding-left: 0.5rem;
 }
 
 .input.invalid {
   border-left-color: #ed5a5a;
-  padding-left: 0.3rem;
+  padding-left: 0.5rem;
 }
 
 .input::-webkit-input-placeholder {

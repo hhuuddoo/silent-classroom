@@ -1,10 +1,11 @@
-import { HeaderContainer, NewPoll } from "./containers";
+import { HeaderContainer } from "./containers";
+import { PollBoard } from "./pages";
 
 function App() {
   return (
     <>
       <HeaderContainer />
-      <NewPoll />
+      <PollBoard />
     </>
   );
 }
