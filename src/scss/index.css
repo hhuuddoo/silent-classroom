@@ -42,7 +42,7 @@ a:hover {
 .seperator {
   width: 100%;
   height: 1px;
-  background-color: #ccc8c9;
+  background-color: #3a3d44;
   display: block;
   margin: 1rem 0;
 }
@@ -86,6 +86,10 @@ a:hover {
   padding: 0.25rem 0.875rem;
   color: #fef8fa;
   cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   -webkit-transition: color 80ms ease-in-out, background-color 80ms ease-in-out;
   transition: color 80ms ease-in-out, background-color 80ms ease-in-out;
 }
@@ -119,6 +123,11 @@ a:hover {
   fill: #589cec;
 }
 
+.button--option-list.disabled {
+  fill: #5c5d63;
+  cursor: default;
+}
+
 .input {
   font-family: inherit;
   font-size: 1rem;
@@ -126,17 +135,60 @@ a:hover {
   color: #fef8fa;
   background-color: transparent;
   border: none;
+  border-left: 1px solid transparent;
   resize: none;
   width: 100%;
+  padding-left: 0rem;
   outline: none;
+  -webkit-transition: border-left 50ms ease-out, padding-left 50ms ease-out;
+  transition: border-left 50ms ease-out, padding-left 50ms ease-out;
+}
+
+.input:focus {
+  border-left: 1px solid #589cec;
+  padding-left: 0.3rem;
+}
+
+.input.invalid {
+  border-left-color: #ed5a5a;
+}
+
+.input::-webkit-input-placeholder {
+  -webkit-user-select: none;
+          user-select: none;
+}
+
+.input:-ms-input-placeholder {
+  -ms-user-select: none;
+      user-select: none;
+}
+
+.input::-ms-input-placeholder {
+  -ms-user-select: none;
+      user-select: none;
+}
+
+.input::placeholder {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 .input--question {
   font-size: 1.25rem;
 }
 
-.input--option:not(:first-child) {
-  margin-top: 1rem;
+.input--option {
+  margin-bottom: 1rem;
+}
+
+.input--option:last-of-type {
+  margin-bottom: 0;
+}
+
+.hidden {
+  display: none;
 }
 
 @media (max-width: 39.9375em) {

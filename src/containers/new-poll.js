@@ -15,7 +15,9 @@ export default function NewPoll() {
   const [numberOfOptions, setNumberOfOptions] = useState(2);
   const [optionList, setOptionList] = useState({ options: [1, 2] });
   const [optionUpdateType, setOptionUpdateType] = useState("");
+  const OPTION_LIMIT = 10;
 
+  // Update Poll Options List
   useEffect(() => {
     if (optionUpdateType === "ADD") {
       setOptionList((prev) => ({
@@ -32,8 +34,10 @@ export default function NewPoll() {
 
   // Add poll option
   const addOption = () => {
-    setNumberOfOptions((prev) => prev + 1);
-    setOptionUpdateType("ADD");
+    if (numberOfOptions < OPTION_LIMIT) {
+      setNumberOfOptions((prev) => prev + 1);
+      setOptionUpdateType("ADD");
+    }
   };
 
   // Remove most recent option (if there are more than two)
@@ -58,9 +62,20 @@ export default function NewPoll() {
           />
         );
       })}
+      <Seperator />
       <div className="poll-buttons-container">
-        <Add className="button--option-list" onClick={addOption} />
-        <Minus className="button--option-list" onClick={removeOption} />
+        <Add
+          className={`button--option-list ${
+            numberOfOptions < OPTION_LIMIT ? `` : `disabled`
+          }`}
+          onClick={addOption}
+        />
+        <Minus
+          className={`button--option-list ${
+            numberOfOptions <= 2 ? `disabled` : ``
+          }`}
+          onClick={removeOption}
+        />
         <div className="right">
           <span className="button">Cancel</span>
           <span className="button button--cta">Create Poll</span>
