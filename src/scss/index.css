@@ -115,8 +115,8 @@ a:hover {
   width: 1.714rem;
   margin-right: 1rem;
   fill: #fef8fa;
-  -webkit-transition: fill 80ms ease-in-out;
-  transition: fill 80ms ease-in-out;
+  -webkit-transition: fill 80ms ease-in-out, fill 150ms ease-in-out;
+  transition: fill 80ms ease-in-out, fill 150ms ease-in-out;
 }
 
 .button--option-list:hover {
@@ -151,6 +151,7 @@ a:hover {
 
 .input.invalid {
   border-left-color: #ed5a5a;
+  padding-left: 0.3rem;
 }
 
 .input::-webkit-input-placeholder {
