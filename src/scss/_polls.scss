@@ -36,18 +36,50 @@
       transform: rotate(45deg);
     }
   }
-  //   display: flex;
-  //   align-items: center;
-  //   width: 100%;
-  //   height: 2.125rem;
-  //   border-radius: 0.625rem;
-  //   max-width: 31.25rem;
-  //   margin: 0 auto;
-  //   background-color: $spaceGrey;
-  //   padding: 0.5rem 1rem;
 
-  //   &__icon {
-  //     width: 1.5rem;
-  //     height: 1.5rem;
-  //   }
+  // Create Poll Button styling for desktop
+  @include breakpoint-up(medium) {
+    // transform: translateX(-50%);
+
+    position: relative;
+    justify-content: flex-start;
+    bottom: 0;
+    left: 0;
+    transform: none;
+    width: 100%;
+    height: 2.125rem;
+    border-radius: 0.625rem;
+    max-width: 31.25rem;
+    margin: 1rem auto;
+    background-color: $veryDarkBlue;
+    padding: 0.5rem 1rem;
+    border: none;
+    box-shadow: none;
+    color: $light;
+    font-weight: 700;
+
+    svg {
+      height: 1.5rem;
+      width: 1.5rem;
+    }
+
+    &:hover,
+    &.active {
+      background-color: $spaceGrey;
+      svg {
+        fill: $light;
+        transform: none;
+      }
+    }
+
+    &.active {
+      display: none;
+    }
+    // box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+
+    //   &__icon {
+    //     width: 1.5rem;
+    //     height: 1.5rem;
+    //   }
+  }
 }
