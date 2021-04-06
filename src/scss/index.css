@@ -349,6 +349,7 @@ a:hover {
           transform: translateX(-50%);
   border: 2px solid #589cec;
   cursor: pointer;
+  z-index: -1;
   -webkit-transition: background-color 100ms ease-out, fill 100ms ease-out;
   transition: background-color 100ms ease-out, fill 100ms ease-out;
 }
@@ -397,6 +398,7 @@ a:hover {
     -webkit-box-shadow: none;
             box-shadow: none;
     color: #fef8fa;
+    z-index: 1;
     font-weight: 700;
   }
   .add-poll svg {

@@ -14,6 +14,7 @@
   transform: translateX(-50%);
   border: 2px solid $blue;
   cursor: pointer;
+  z-index: -1;
   transition: background-color 100ms ease-out, fill 100ms ease-out;
 
   svg {
@@ -56,6 +57,7 @@
     border: none;
     box-shadow: none;
     color: $light;
+    z-index: 1;
     font-weight: 700;
 
     svg {
