@@ -6,9 +6,9 @@ export default function Poll({ question, options }) {
     <Panel>
       <Question question={question} />
       <Seperator />
-      <PollOption option="Option 1" name="some id" />
-      <PollOption option="Option 2" name="some id" />
-      <PollOption option="Option 3" name="some id" />
+      <PollOption option="Option 1" name="some id" id="id" />
+      <PollOption option="Option 2" name="some id" id="id2" />
+      <PollOption option="Option 3" name="some id" id="id3" />
       <Seperator />
     </Panel>
   );

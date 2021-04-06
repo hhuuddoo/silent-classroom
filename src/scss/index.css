@@ -437,10 +437,7 @@ a:hover {
   color: #fef8fa;
   border-left: 3px solid transparent;
   width: 100%;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  cursor: pointer;
   margin-left: 0.5rem;
 }
 

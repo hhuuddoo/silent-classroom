@@ -16,7 +16,8 @@
   color: $light;
   border-left: 3px solid transparent;
   width: 100%;
-  user-select: none;
+  cursor: pointer;
+  // user-select: none;
 
   margin-left: 0.5rem;
 
@@ -61,7 +62,6 @@
       }
     }
   }
-
   &__container {
     display: flex;
     align-items: center;

@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function PollOption({ option, name }) {
+export default function PollOption({ option, name, id }) {
   return (
     <div className="option__container">
       <input
@@ -8,8 +8,11 @@ export default function PollOption({ option, name }) {
         type="radio"
         name={name}
         value={option}
+        id={id}
       />
-      <span className="option">{option}</span>
+      <label htmlFor={id} className="option">
+        {option}
+      </label>
     </div>
   );
 }
