@@ -1,0 +1,53 @@
+.add-poll {
+  position: fixed;
+  background-color: $blue;
+  height: 2rem;
+  width: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.75);
+  bottom: 0;
+  left: 50%;
+  margin-bottom: 1rem;
+  transform: translateX(-50%);
+  border: 2px solid $blue;
+  cursor: pointer;
+  transition: background-color 100ms ease-out, fill 100ms ease-out;
+
+  svg {
+    height: 1.714rem;
+    width: 1.714rem;
+    fill: $light;
+    transition: transform 100ms ease-in;
+  }
+
+  &:hover,
+  &.active {
+    background-color: $veryDarkBlue;
+    svg {
+      fill: $blue;
+    }
+  }
+
+  &.active {
+    svg {
+      transform: rotate(45deg);
+    }
+  }
+  //   display: flex;
+  //   align-items: center;
+  //   width: 100%;
+  //   height: 2.125rem;
+  //   border-radius: 0.625rem;
+  //   max-width: 31.25rem;
+  //   margin: 0 auto;
+  //   background-color: $spaceGrey;
+  //   padding: 0.5rem 1rem;
+
+  //   &__icon {
+  //     width: 1.5rem;
+  //     height: 1.5rem;
+  //   }
+}

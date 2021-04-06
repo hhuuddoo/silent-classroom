@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import { NewPoll } from "../containers";
+import { AddPollButton } from "../components";
 
 export default function PollBoard() {
-  const [polls, setPolls] = useState([]);
-
+  const [createNewPoll, setCreateNewPoll] = useState(false);
   return (
     <>
       <div className="panel-container">
-        <NewPoll />
-        <NewPoll />
+        <AddPollButton
+          createNewPoll={createNewPoll}
+          setCreateNewPoll={setCreateNewPoll}
+        />
         <NewPoll />
       </div>
     </>

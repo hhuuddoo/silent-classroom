@@ -92,7 +92,7 @@ export default function NewPoll() {
           onClick={removeOption}
         />
         <div className="right">
-          <span className="button">Cancel</span>{" "}
+          <span className="button hide-on-mobile">Cancel</span>{" "}
           {/* Get function from higher level component */}
           <span className="button button--cta" onClick={handleCreatePollClick}>
             Create Poll
