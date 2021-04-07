@@ -31,6 +31,12 @@ a:hover {
   color: inherit;
 }
 
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 // Spacing
 .container {
   padding: 0.5rem 1rem;
@@ -47,7 +53,6 @@ a:hover {
 }
 
 .panel-container {
-  margin: 0 auto;
   padding: 0 1rem;
 }
 

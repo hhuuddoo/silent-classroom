@@ -1,3 +1,4 @@
+import { Footer } from "./components";
 import { HeaderContainer } from "./containers";
 import { PollBoard } from "./pages";
 
@@ -6,6 +7,7 @@ function App() {
     <>
       <HeaderContainer />
       <PollBoard />
+      <Footer />
     </>
   );
 }

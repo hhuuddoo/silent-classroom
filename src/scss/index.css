@@ -33,6 +33,17 @@ a:hover {
   color: inherit;
 }
 
+#root {
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
 .container {
   padding: 0.5rem 1rem;
   max-width: 64rem;
@@ -48,7 +59,6 @@ a:hover {
 }
 
 .panel-container {
-  margin: 0 auto;
   padding: 0 1rem;
 }
 
@@ -554,5 +564,66 @@ a:hover {
   padding-right: 0.5rem;
   font-size: 0.875rem;
   font-weight: 300;
+}
+
+.footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: auto;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  color: #fef8fa;
+  padding: 1rem 0;
+  background-color: #111f2d;
+}
+
+.footer__icon-attribution {
+  margin-top: 0.5rem;
+}
+
+.footer a {
+  position: relative;
+  text-decoration: none;
+  color: #589cec;
+  -webkit-transition: color 200ms ease-in;
+  transition: color 200ms ease-in;
+}
+
+.footer a:visited {
+  color: #589cec;
+  text-decoration: none;
+}
+
+.footer a::before {
+  content: "";
+  position: absolute;
+  bottom: -0.1rem;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 0;
+  height: 0.075rem;
+  background-color: #589cec;
+  -webkit-transition: background-color 200ms ease-in, width 150ms ease-out;
+  transition: background-color 200ms ease-in, width 150ms ease-out;
+}
+
+.footer a:hover {
+  color: #ccc8c9;
+}
+
+.footer a:hover:before {
+  width: 100%;
+  background-color: #fef8fa;
 }
 /*# sourceMappingURL=index.css.map */
