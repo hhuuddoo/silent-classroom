@@ -4,6 +4,7 @@
   align-items: center;
   background-color: $veryDarkBlue;
   border-radius: 0.3rem 1rem 1rem 0.3rem;
+  margin-bottom: 0.5rem;
 
   &__bar {
     display: flex;
@@ -12,10 +13,13 @@
     background-color: $blue;
     padding-left: 0.5rem;
     border-radius: 0.3rem 1rem 1rem 0.3rem;
+    transition: width 180ms ease-in-out;
   }
 
   &__option {
     margin: 0.5rem 0;
+    white-space: nowrap;
+    font-weight: 700;
   }
 
   &__percentage {
