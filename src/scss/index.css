@@ -491,7 +491,18 @@ a:hover {
   margin-bottom: 1rem;
 }
 
-.poll-result {
+.poll-result-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 0.5rem;
+}
+
+.poll-result-container .poll-result {
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -501,10 +512,9 @@ a:hover {
           align-items: center;
   background-color: #14191f;
   border-radius: 0.3rem 1rem 1rem 0.3rem;
-  margin-bottom: 0.5rem;
 }
 
-.poll-result__bar {
+.poll-result-container .poll-result__bar {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -519,15 +529,24 @@ a:hover {
   transition: width 180ms ease-in-out;
 }
 
-.poll-result__option {
+.poll-result-container .poll-result__option {
   margin: 0.5rem 0;
   white-space: nowrap;
   font-weight: 700;
 }
 
-.poll-result__percentage {
+.poll-result-container .poll-result__percentage {
   position: absolute;
   right: 0;
+  padding-right: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 300;
+}
+
+.poll-result-container .poll-votes {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  margin-top: 0.125rem;
   padding-right: 0.5rem;
   font-size: 0.875rem;
   font-weight: 300;
