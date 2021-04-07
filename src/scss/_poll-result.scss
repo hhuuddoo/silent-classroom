@@ -1,0 +1,28 @@
+.poll-result {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: $veryDarkBlue;
+  border-radius: 0.3rem 1rem 1rem 0.3rem;
+
+  &__bar {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    background-color: $blue;
+    padding-left: 0.5rem;
+    border-radius: 0.3rem 1rem 1rem 0.3rem;
+  }
+
+  &__option {
+    margin: 0.5rem 0;
+  }
+
+  &__percentage {
+    position: absolute;
+    right: 0;
+    padding-right: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 300;
+  }
+}
