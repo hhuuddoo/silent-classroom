@@ -1,6 +1,10 @@
 import React from "react";
 
-export default function PollOptionResult({ option, percentage, votes }) {
+export default function PollOptionResult({
+  option,
+  percentage = 0,
+  votes = 0,
+}) {
   return (
     <div className="poll-result-container">
       <div className="poll-result">
