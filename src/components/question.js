@@ -1,6 +1,6 @@
 import React from "react";
 
 // Question label
-export default function Question({ question }) {
-  return <span className="question">{question}</span>;
+export default function Question({ children }) {
+  return <span className="question">{children}</span>;
 }

@@ -446,6 +446,7 @@ a:hover {
   height: 1rem;
   width: 1.0415rem;
   padding: 0;
+  cursor: pointer;
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
