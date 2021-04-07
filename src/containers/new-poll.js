@@ -20,14 +20,10 @@ export default function NewPoll({ setCreateNewPoll, setNewPoll }) {
   const [optionUpdateType, setOptionUpdateType] = useState(""); // Holds whether to add or remove option
   const [isPollSubmissionAttempt, setIsPollSubmissionAttempt] = useState(false); // A submission attempt has been made
 
-  const isQuestionInvalid = () => {
-    return question.trim() === "";
-  };
-
   // Set question invalid state
   useEffect(() => {
     if (isPollSubmissionAttempt) {
-      if (isQuestionInvalid) {
+      if (question.trim() === "") {
         setQuestionInvalid(true);
       } else {
         setQuestionInvalid(false);
@@ -47,7 +43,7 @@ export default function NewPoll({ setCreateNewPoll, setNewPoll }) {
 
     setIsPollSubmissionAttempt(true);
 
-    if (isQuestionInvalid) {
+    if (question.trim() === "") {
       // Set invalid on question input
     }
     if (options.length <= 1) {
