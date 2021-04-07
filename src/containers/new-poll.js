@@ -10,26 +10,55 @@ import {
 } from "../components";
 
 // New Poll Panel
-export default function NewPoll({ setCreateNewPoll }) {
+export default function NewPoll({ setCreateNewPoll, setNewPoll }) {
   const OPTION_LIMIT = 10;
   const [question, setQuestion] = useState(""); // Question for poll
+  const [questionInvalid, setQuestionInvalid] = useState(false);
   const [pollOptions, setPollOptions] = useState([]); // Options for poll
   const [numberOfOptions, setNumberOfOptions] = useState(2); // Number of options in poll
   const [optionList, setOptionList] = useState({ options: [1, 2] }); // Option components
   const [optionUpdateType, setOptionUpdateType] = useState(""); // Holds whether to add or remove option
+  const [isPollSubmissionAttempt, setIsPollSubmissionAttempt] = useState(false); // A submission attempt has been made
+
+  const isQuestionInvalid = () => {
+    return question.trim() === "";
+  };
+
+  // Set question invalid state
+  useEffect(() => {
+    if (isPollSubmissionAttempt) {
+      if (isQuestionInvalid) {
+        setQuestionInvalid(true);
+      } else {
+        setQuestionInvalid(false);
+      }
+    }
+  }, [isPollSubmissionAttempt, question]);
 
   // Execute when create poll button is clicked
   const handleCreatePollClick = () => {
     const options = [];
 
     for (let option in pollOptions) {
-      options.push(pollOptions[option]);
+      if (option.trim() !== "") {
+        options.push(pollOptions[option]);
+      }
     }
 
-    // setPolls((prev) => [...prev, { question: question, options: options }]);
+    setIsPollSubmissionAttempt(true);
 
-    const poll = { question: question, options: options };
-    console.log(poll);
+    if (isQuestionInvalid) {
+      // Set invalid on question input
+    }
+    if (options.length <= 1) {
+      // Set invalid on empty poll option inputs
+    }
+
+    // Add new poll data to state variable
+    if (question.trim() !== "" && options.length > 1) {
+      setNewPoll({ question: question.trim(), options: options });
+      setCreateNewPoll(false);
+    }
   };
 
   // Update Poll Option Component List
@@ -65,7 +94,11 @@ export default function NewPoll({ setCreateNewPoll }) {
 
   return (
     <Panel>
-      <QuestionInput question={question} setQuestion={setQuestion} />
+      <QuestionInput
+        question={question}
+        setQuestion={setQuestion}
+        invalid={questionInvalid}
+      />
       <Seperator />
       {optionList.options.map((option, idx) => {
         return (

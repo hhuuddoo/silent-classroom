@@ -1,9 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { NewPoll, Poll, PollResults } from "../containers";
 import { AddPollButton } from "../components";
 
 export default function PollBoard() {
   const [createNewPoll, setCreateNewPoll] = useState(false);
+  const [newPoll, setNewPoll] = useState({});
+
+  useEffect(() => {
+    console.log(newPoll);
+  }, [newPoll]);
+
   return (
     <>
       <div className="panel-container">
@@ -11,7 +17,12 @@ export default function PollBoard() {
           createNewPoll={createNewPoll}
           setCreateNewPoll={setCreateNewPoll}
         />
-        {createNewPoll && <NewPoll setCreateNewPoll={setCreateNewPoll} />}
+        {createNewPoll && (
+          <NewPoll
+            setCreateNewPoll={setCreateNewPoll}
+            setNewPoll={setNewPoll}
+          />
+        )}
         <PollResults question="What is 0 + 1" />
         <Poll
           question="What is 1 + 1?"
