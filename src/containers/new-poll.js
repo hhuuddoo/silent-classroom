@@ -13,14 +13,14 @@ import {
 export default function NewPoll({ setCreateNewPoll, setPolls }) {
   const OPTION_LIMIT = 10;
   const [question, setQuestion] = useState(""); // Question for poll
-  const [questionInvalid, setQuestionInvalid] = useState(false);
+  const [questionInvalid, setQuestionInvalid] = useState(false); // If question is invalid
   const [pollOptions, setPollOptions] = useState([]); // Options for poll
   const [numberOfOptions, setNumberOfOptions] = useState(2); // Number of options in poll
   const [optionList, setOptionList] = useState({ options: [1, 2] }); // Option components
   const [optionUpdateType, setOptionUpdateType] = useState(""); // Holds whether to add or remove option
   const [isPollSubmissionAttempt, setIsPollSubmissionAttempt] = useState(false); // A submission attempt has been made
 
-  // Set question invalid state
+  // Check if question is invalid
   useEffect(() => {
     if (isPollSubmissionAttempt) {
       if (question.trim() === "") {
@@ -31,39 +31,45 @@ export default function NewPoll({ setCreateNewPoll, setPolls }) {
     }
   }, [isPollSubmissionAttempt, question]);
 
-  // Execute when create poll button is clicked
+  // Handle Create Poll button press
   const handleCreatePollClick = () => {
     const options = [];
 
+    // Remove all empty options
     for (let option in pollOptions) {
       if (option.trim() !== "") {
         options.push(pollOptions[option]);
       }
     }
 
+    // An attempt has been made
     setIsPollSubmissionAttempt(true);
 
-    console.log("HERE");
-    console.log(options);
-
+    // Check if new poll is valid
     if (question.trim() === "" || options.length <= 1) {
       alert("Error");
     } else {
+      // Add new poll
       setPolls((prev) => [
         { question: question.trim(), options: options },
         ...prev,
       ]);
+
+      // Close new poll panel
       setCreateNewPoll(false);
     }
   };
 
-  // Update Poll Option Component List
+  // Update state variable holding poll option components
   useEffect(() => {
+    // Add new option to option list
     if (optionUpdateType === "ADD") {
       setOptionList((prev) => ({
         options: [...prev.options, numberOfOptions],
       }));
-    } else if (optionUpdateType === "REMOVE") {
+    }
+    // Remove option from option list
+    else if (optionUpdateType === "REMOVE") {
       setOptionList((prev) => {
         const options = [...prev.options];
         options.splice(numberOfOptions);
@@ -72,7 +78,7 @@ export default function NewPoll({ setCreateNewPoll, setPolls }) {
     }
   }, [numberOfOptions, optionUpdateType]);
 
-  // Add poll option
+  // Handle add poll option button press
   const addOption = () => {
     if (numberOfOptions < OPTION_LIMIT) {
       setNumberOfOptions((prev) => prev + 1);
@@ -80,7 +86,7 @@ export default function NewPoll({ setCreateNewPoll, setPolls }) {
     }
   };
 
-  // Remove most recent option (if there are more than two)
+  // Handle remove poll option button press
   const removeOption = () => {
     if (numberOfOptions > 2) {
       setNumberOfOptions((prev) => prev - 1);
@@ -96,6 +102,8 @@ export default function NewPoll({ setCreateNewPoll, setPolls }) {
         invalid={questionInvalid}
       />
       <Seperator />
+
+      {/* Display options */}
       {optionList.options.map((option, idx) => {
         return (
           <PollOptionInput
@@ -106,7 +114,9 @@ export default function NewPoll({ setCreateNewPoll, setPolls }) {
           />
         );
       })}
+
       <Seperator />
+
       <div className="poll-buttons-container">
         <Add
           className={`button--option-list ${

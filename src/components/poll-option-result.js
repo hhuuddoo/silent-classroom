@@ -1,5 +1,6 @@
 import React from "react";
 
+// Poll option result bar
 export default function PollOptionResult({
   option,
   percentage = 0,

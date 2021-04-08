@@ -1,6 +1,7 @@
 import React from "react";
 import { ReactComponent as Logo } from "../images/logo.svg";
 
+// Header component
 export default function Header(props) {
   const { hamburgerIsOpen, setHamburgerIsOpen } = props;
 

@@ -1,5 +1,6 @@
 import React from "react";
 
+// Poll option component
 export default function PollOption({ option, name, id }) {
   return (
     <div className="option__container">
