@@ -10,7 +10,7 @@ import {
 } from "../components";
 
 // New Poll Panel
-export default function NewPoll({ setCreateNewPoll, setNewPoll }) {
+export default function NewPoll({ setCreateNewPoll, setPolls }) {
   const OPTION_LIMIT = 10;
   const [question, setQuestion] = useState(""); // Question for poll
   const [questionInvalid, setQuestionInvalid] = useState(false);
@@ -43,16 +43,16 @@ export default function NewPoll({ setCreateNewPoll, setNewPoll }) {
 
     setIsPollSubmissionAttempt(true);
 
-    if (question.trim() === "") {
-      // Set invalid on question input
-    }
-    if (options.length <= 1) {
-      // Set invalid on empty poll option inputs
-    }
+    console.log("HERE");
+    console.log(options);
 
-    // Add new poll data to state variable
-    if (question.trim() !== "" && options.length > 1) {
-      setNewPoll({ question: question.trim(), options: options });
+    if (question.trim() === "" || options.length <= 1) {
+      alert("Error");
+    } else {
+      setPolls((prev) => [
+        { question: question.trim(), options: options },
+        ...prev,
+      ]);
       setCreateNewPoll(false);
     }
   };

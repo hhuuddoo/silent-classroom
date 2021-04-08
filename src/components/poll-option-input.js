@@ -5,7 +5,7 @@ export default function PollOptionInput({ id, pollOptions, setPollOptions }) {
   return (
     <>
       <input
-        className="input input--option"
+        className={`input input--option`}
         value={pollOptions.id}
         placeholder="Enter poll option..."
         onChange={({ target }) =>

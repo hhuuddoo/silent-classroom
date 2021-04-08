@@ -4,11 +4,12 @@ import { AddPollButton } from "../components";
 
 export default function PollBoard() {
   const [createNewPoll, setCreateNewPoll] = useState(false);
-  const [newPoll, setNewPoll] = useState({});
+
+  const [polls, setPolls] = useState([]);
 
   useEffect(() => {
-    console.log(newPoll);
-  }, [newPoll]);
+    setPolls([{ question: "What is 1+1?", options: ["2", "window", "1"] }]);
+  }, []);
 
   return (
     <>
@@ -18,13 +19,22 @@ export default function PollBoard() {
           setCreateNewPoll={setCreateNewPoll}
         />
         {createNewPoll && (
-          <NewPoll
-            setCreateNewPoll={setCreateNewPoll}
-            setNewPoll={setNewPoll}
-          />
+          <NewPoll setCreateNewPoll={setCreateNewPoll} setPolls={setPolls} />
         )}
         <PollResults question="What is 0 + 1" />
-        <Poll
+
+        {polls.map(({ question, options }, idx) => {
+          return (
+            <Poll
+              question={question}
+              options={options}
+              key={idx}
+              pollId={idx}
+            />
+          );
+        })}
+
+        {/* <Poll
           question="What is 1 + 1?"
           options={["2", "Window", "1"]}
           pollId={1}
@@ -35,7 +45,7 @@ export default function PollBoard() {
           pollId={2}
         />
         <Poll question="What is 3 + 3?" options={["9", "6", "3"]} pollId={3} />
-        <Poll question="What is 4 + 4?" options={["16", "8", "4"]} pollId={4} />
+        <Poll question="What is 4 + 4?" options={["16", "8", "4"]} pollId={4} /> */}
       </div>
     </>
   );
