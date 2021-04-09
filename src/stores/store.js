@@ -35,6 +35,13 @@ class PollStore {
     this.blankPollCreated = true;
   }
 
+  cancelBlankPoll() {
+    if (this.blankPollCreated) {
+      this.blankPollCreated = false;
+      this.polls.pop();
+    }
+  }
+
   // Get the id of the blank poll if it exists
   get blankPollId() {
     if (!this.blankPollCreated) return -1;

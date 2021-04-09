@@ -135,10 +135,12 @@ const NewPoll = observer(({ setCreateNewPoll, setPolls }) => {
           }`}
           onClick={() => store.removePollOption(pollId)}
         />
+
         <div className="right">
           <span
             className="button hide-on-mobile"
-            onClick={() => setCreateNewPoll(false)}
+            // onClick={() => setCreateNewPoll(false)}
+            onClick={() => store.cancelBlankPoll()}
           >
             Cancel
           </span>
