@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { ReactComponent as Add } from "../images/add.svg";
 import { ReactComponent as Minus } from "../images/minus.svg";
-import { useStore } from "../stores/store";
+import { useStore } from "../store";
 import { observer } from "mobx-react-lite";
 
 import {

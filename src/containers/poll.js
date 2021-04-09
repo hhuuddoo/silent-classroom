@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
+import { observer } from "mobx-react-lite";
+import { useStore } from "../store";
 import { Panel, Question, Seperator, PollOption } from "../components";
 
 // Poll container
-export default function Poll({ question, options, pollId }) {
+const Poll = observer(({ question, options, pollId }) => {
+  // Access store
+  const store = useStore();
+
+  // Holds the OptionId of the selected radio button
+  const [selectedOptionId, setSelectedOptionId] = useState(null);
+
   return (
     <Panel>
       <Question>{question}</Question>
@@ -14,6 +22,8 @@ export default function Poll({ question, options, pollId }) {
           <PollOption
             key={optionId}
             option={option}
+            optionId={optionId}
+            setSelectedOptionId={setSelectedOptionId}
             name={`options_${pollId}`}
             id={`option_${pollId}_${optionId}`}
           />
@@ -22,8 +32,15 @@ export default function Poll({ question, options, pollId }) {
 
       <Seperator />
       <div className="right">
-        <span className="button button--cta">Vote</span>
+        <span
+          className="button button--cta"
+          onClick={() => store.addVote(pollId, selectedOptionId)}
+        >
+          Vote
+        </span>
       </div>
     </Panel>
   );
-}
+});
+
+export default Poll;
