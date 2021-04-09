@@ -10,11 +10,13 @@ export default function PollResults({ question, options, totalVotes }) {
 
       {/* Display poll results */}
       {options.map(({ optionId, option, votes }) => {
+        const percentage =
+          Math.round(((votes / totalVotes) * 100 + Number.EPSILON) * 100) / 100;
         return (
           <PollOptionResult
             key={optionId}
             option={option}
-            percentage={(votes / totalVotes) * 100}
+            percentage={percentage}
             votes={votes}
           />
         );
