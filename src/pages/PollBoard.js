@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { NewPoll, Poll, PollResults } from "../containers";
 import { AddPollButton } from "../components";
 import { useStore } from "../stores/store";
@@ -7,7 +7,6 @@ import { observer } from "mobx-react-lite";
 const PollBoard = observer(() => {
   // Access store context
   const store = useStore();
-  const [polls, setPolls] = useState([]);
 
   return (
     <>
@@ -29,19 +28,15 @@ const PollBoard = observer(() => {
           />
         ))}
 
-        {/* <PollResults question="What is 0 + 1" /> */}
-
-        {/* Display polls */}
-        {polls.map(({ question, options }, idx) => {
-          return (
-            <Poll
-              question={question}
-              options={options}
-              key={idx}
-              pollId={idx} // CHANGE TO POLL ID FROM FIREBASE
-            />
-          );
-        })}
+        {/* Display open polls */}
+        {store.openPolls.map((poll) => (
+          <Poll
+            key={poll.pollId}
+            pollId={poll.pollId}
+            question={poll.question}
+            options={poll.options}
+          />
+        ))}
       </div>
     </>
   );

@@ -9,13 +9,13 @@ export default function Poll({ question, options, pollId }) {
       <Seperator />
 
       {/* Display options on poll panel */}
-      {options.map((option, idx) => {
+      {options.map(({ option, optionId }) => {
         return (
           <PollOption
-            key={idx}
+            key={optionId}
             option={option}
-            name={pollId}
-            id={`${pollId}_${idx}`}
+            name={`options_${pollId}`}
+            id={`option_${pollId}_${optionId}`}
           />
         );
       })}
