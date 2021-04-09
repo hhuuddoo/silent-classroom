@@ -9,6 +9,7 @@ class PollStore {
       pollId: 0,
       status: STATUS.CLOSED,
       question: "Example Question? (CLOSED)",
+      totalVotes: 8,
       options: [
         { optionId: 1, option: "Option 1", votes: 3 },
         { optionId: 2, option: "Option 2", votes: 5 },
@@ -18,6 +19,7 @@ class PollStore {
       pollId: 1,
       status: STATUS.OPEN,
       question: "Example Question? (VOTING)",
+      totalVotes: 8,
       options: [
         { optionId: 1, option: "Option 1", votes: 3 },
         { optionId: 2, option: "Option 2", votes: 5 },

@@ -22,7 +22,11 @@ const PollBoard = observer(() => {
 
         {/* Display poll results */}
         {store.completedPolls.map((poll) => (
-          <PollResults question={poll.question} options={poll.options} />
+          <PollResults
+            question={poll.question}
+            options={poll.options}
+            totalVotes={poll.totalVotes}
+          />
         ))}
 
         {/* <PollResults question="What is 0 + 1" /> */}
