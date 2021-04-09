@@ -27,7 +27,7 @@ class PollStore {
     },
     {
       pollId: 2,
-      status: STATUS.CLOSED,
+      status: STATUS.OPEN,
       question: "Example Question 2? (VOTING)",
       totalVotes: 221,
       options: [
