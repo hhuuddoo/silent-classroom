@@ -121,17 +121,19 @@ const NewPoll = observer(({ setCreateNewPoll, setPolls }) => {
       <Seperator />
 
       <div className="poll-buttons-container">
+        {/* Add Poll Option Button */}
         <Add
           className={`button--option-list ${
             numberOfOptions < OPTION_LIMIT ? `` : `disabled`
           }`}
-          onClick={() => store.addNewOption(pollId)}
+          onClick={() => store.newPollOption(pollId)}
         />
+
         <Minus
           className={`button--option-list ${
             numberOfOptions <= 2 ? `disabled` : ``
           }`}
-          onClick={removeOption}
+          onClick={() => store.removePollOption(pollId)}
         />
         <div className="right">
           <span

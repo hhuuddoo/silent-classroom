@@ -14,6 +14,7 @@ class PollStore {
     },
   ];
 
+  // If a new poll is currently being created
   blankPollCreated = false;
 
   constructor() {
@@ -34,25 +35,33 @@ class PollStore {
     this.blankPollCreated = true;
   }
 
+  // Get the id of the blank poll if it exists
   get blankPollId() {
     if (!this.blankPollCreated) return -1;
     return this.polls.length - 1;
   }
 
+  // Get all polls
   get getPolls() {
     return this.polls;
   }
 
-  addNewOption(pollId) {
+  // Add a new poll option to a given poll
+  newPollOption(pollId) {
     const blankOption = {
       optionId: this.polls[pollId].options.length,
       option: "",
       votes: 0,
     };
-    console.log(this.polls[pollId]);
     this.polls[pollId].options.push(blankOption);
   }
 
+  // Remove most recent poll option from a given poll
+  removePollOption(pollId) {
+    console.log(this.polls[pollId].options.pop());
+  }
+
+  // Set the question of a given poll
   setQuestion(question, pollId) {
     this.polls[pollId].question = question;
   }
