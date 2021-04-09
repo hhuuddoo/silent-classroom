@@ -15,16 +15,13 @@ import {
 const NewPoll = observer(({ setCreateNewPoll, setPolls }) => {
   // Get access to store context
   const store = useStore();
+
   // Get this polls unique id
   const pollId = store.blankPollId;
 
   const OPTION_LIMIT = 10;
   const [question, setQuestion] = useState(""); // Question for poll
   const [questionInvalid, setQuestionInvalid] = useState(false); // If question is invalid
-  const [pollOptions, setPollOptions] = useState([]); // Options for poll
-  const [numberOfOptions, setNumberOfOptions] = useState(2); // Number of options in poll
-  const [optionList, setOptionList] = useState({ options: [1, 2] }); // Option components
-  const [optionUpdateType, setOptionUpdateType] = useState(""); // Holds whether to add or remove option
   const [isPollSubmissionAttempt, setIsPollSubmissionAttempt] = useState(false); // A submission attempt has been made
 
   // Check if question is invalid
@@ -42,12 +39,12 @@ const NewPoll = observer(({ setCreateNewPoll, setPolls }) => {
   const handleCreatePollClick = () => {
     const options = [];
 
-    // Remove all empty options
-    for (let option in pollOptions) {
-      if (option.trim() !== "") {
-        options.push(pollOptions[option]);
-      }
-    }
+    // // Remove all empty options
+    // for (let option in pollOptions) {
+    //   if (option.trim() !== "") {
+    //     options.push(pollOptions[option]);
+    //   }
+    // }
 
     // An attempt has been made
     setIsPollSubmissionAttempt(true);
@@ -67,24 +64,6 @@ const NewPoll = observer(({ setCreateNewPoll, setPolls }) => {
     }
   };
 
-  // Update state variable holding poll option components
-  useEffect(() => {
-    // Add new option to option list
-    if (optionUpdateType === "ADD") {
-      setOptionList((prev) => ({
-        options: [...prev.options, numberOfOptions],
-      }));
-    }
-    // Remove option from option list
-    else if (optionUpdateType === "REMOVE") {
-      setOptionList((prev) => {
-        const options = [...prev.options];
-        options.splice(numberOfOptions);
-        return { options: options };
-      });
-    }
-  }, [numberOfOptions, optionUpdateType]);
-
   return (
     <Panel>
       <QuestionInput invalid={questionInvalid} store={store} pollId={pollId} />
@@ -97,6 +76,7 @@ const NewPoll = observer(({ setCreateNewPoll, setPolls }) => {
             optionId={option.optionId}
             pollId={pollId}
             store={store}
+            invalid={false}
           />
         );
       })}
@@ -105,14 +85,15 @@ const NewPoll = observer(({ setCreateNewPoll, setPolls }) => {
         {/* Add Poll Option Button */}
         <Add
           className={`button--option-list ${
-            numberOfOptions < OPTION_LIMIT ? `` : `disabled`
+            store.polls[pollId].options.length < OPTION_LIMIT ? `` : `disabled`
           }`}
           onClick={() => store.newPollOption(pollId)}
         />
+
         {/* Remove poll option button */}
         <Minus
           className={`button--option-list ${
-            numberOfOptions <= 2 ? `disabled` : ``
+            store.polls[pollId].options.length <= 2 ? `disabled` : ``
           }`}
           onClick={() => store.removePollOption(pollId)}
         />
