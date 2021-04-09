@@ -1,9 +1,9 @@
 import { makeAutoObservable } from "mobx";
-import * as STATUS from "../constants/poll-status";
+import * as STATUS from "./constants/poll-status";
 import React from "react";
 
 class PollStore {
-  // variable to store polls in application
+  // variable to store polls
   polls = [
     {
       pollId: 0,
@@ -37,9 +37,10 @@ class PollStore {
     },
   ];
 
-  // If a new poll is currently being created
+  // Whether a new poll is currently being created
   blankPollCreated = false;
 
+  // initialise PollStore class
   constructor() {
     makeAutoObservable(this);
   }

@@ -1,7 +1,7 @@
 import React from "react";
 import { NewPoll, Poll, PollResults } from "../containers";
 import { AddPollButton } from "../components";
-import { useStore } from "../stores/store";
+import { useStore } from "../store";
 import { observer } from "mobx-react-lite";
 
 const PollBoard = observer(() => {
