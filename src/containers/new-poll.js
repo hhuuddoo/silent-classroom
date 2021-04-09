@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { ReactComponent as Add } from "../images/add.svg";
 import { ReactComponent as Minus } from "../images/minus.svg";
 import { useStore } from "../stores/store";
@@ -21,18 +21,37 @@ const NewPoll = observer(() => {
 
   // Max number of options
   const OPTION_LIMIT = 10;
+  const MIN_OPTIONS = 2;
+
+  // Create error state variable
+  const [error, setError] = useState("");
 
   // Handle Create Poll button press
   const handleCreatePollClick = () => {
-    // Remove all empty options
     // Check if poll question is valid
-    // Close new poll panel
+    if (!store.isQuestionValid) {
+      setError("Invalid Question Entered");
+      return;
+    }
+
+    // Check if options are invalid
+    if (store.validOptionCount < MIN_OPTIONS) {
+      setError("You must enter at least 2 options");
+      return;
+    }
+
+    // Reset error state
+    setError("");
+
+    // Add poll
+    store.addNewPoll(pollId);
   };
 
   return (
     <Panel>
       <QuestionInput invalid={false} store={store} pollId={pollId} />
       <Seperator />
+
       {/* Display poll options */}
       {store.polls[pollId].options.map((option) => {
         return (
@@ -41,7 +60,6 @@ const NewPoll = observer(() => {
             optionId={option.optionId}
             pollId={pollId}
             store={store}
-            invalid={false}
           />
         );
       })}
@@ -73,13 +91,15 @@ const NewPoll = observer(() => {
             Cancel
           </span>
 
-          {/* CHANGE TO MOBX */}
           {/* Create poll button */}
           <span className="button button--cta" onClick={handleCreatePollClick}>
             Create Poll
           </span>
         </div>
       </div>
+
+      {/* Display Error Text */}
+      {error !== "" ? <span className="error-text center">{error}</span> : null}
     </Panel>
   );
 });

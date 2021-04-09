@@ -204,6 +204,13 @@ a:hover {
   margin-bottom: 0;
 }
 
+.error-text {
+  display: block;
+  text-align: center;
+  font-size: 0.8rem;
+  color: #ed5a5a;
+}
+
 .hidden {
   display: none;
 }

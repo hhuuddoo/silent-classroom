@@ -165,6 +165,13 @@ a:hover {
   }
 }
 
+.error-text {
+  display: block;
+  text-align: center;
+  font-size: 0.8rem;
+  color: $red;
+}
+
 //Visibility
 .hidden {
   display: none;

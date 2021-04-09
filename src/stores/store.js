@@ -50,6 +50,7 @@ class PollStore {
       pollId: this.polls.length,
       status: STATUS.CREATE,
       question: "",
+      totalVotes: 0,
       options: [
         { optionId: 0, option: "", votes: 0 },
         { optionId: 1, option: "", votes: 0 },
@@ -98,6 +99,15 @@ class PollStore {
     console.log(this.polls[pollId].options.pop());
   }
 
+  // Change blank poll status to open
+  addNewPoll(pollId) {
+    this.blankPollCreated = false;
+    this.polls[pollId].options = this.polls[pollId].options.filter(
+      (option) => option.option.trim() !== ""
+    );
+    this.polls[pollId].status = STATUS.OPEN;
+  }
+
   // Set the question of a given poll
   setQuestion(question, pollId) {
     this.polls[pollId].question = question;
@@ -111,6 +121,18 @@ class PollStore {
   // Get all open polls
   get openPolls() {
     return this.polls.filter((poll) => poll.status === STATUS.OPEN);
+  }
+
+  // Check if new poll question is valid
+  get isQuestionValid() {
+    return this.polls[this.blankPollId].question.trim() !== "";
+  }
+
+  // Check if new poll options are valid
+  get validOptionCount() {
+    return this.polls[this.blankPollId].options.filter(
+      (option) => option.option.trim() !== ""
+    ).length;
   }
 }
 
