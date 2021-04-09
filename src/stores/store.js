@@ -36,6 +36,7 @@ class PollStore {
   createBlankPoll() {
     const blankPoll = {
       pollId: this.polls.length,
+      status: STATUS.CREATE,
       question: "",
       options: [
         { optionId: 0, option: "", votes: 0 },
