@@ -41,9 +41,14 @@ class PollStore {
   }
 
   setQuestion(question, pollId) {
-    const targetPoll = this.polls.find((poll) => poll.pollId === pollId);
-    targetPoll.question = question;
-    console.log(`TARGET POLL QUESTION targetPoll.question`);
+    const targetPollIndex = this.polls.findIndex(
+      (poll) => poll.pollId === pollId
+    );
+    console.log(this.polls[targetPollIndex].question);
+    this.polls[targetPollIndex].question = question;
+
+    // targetPoll.question = question;
+    console.log(`TARGET POLL QUESTION ${question}`);
   }
 }
 

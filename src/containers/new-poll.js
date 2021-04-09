@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { ReactComponent as Add } from "../images/add.svg";
 import { ReactComponent as Minus } from "../images/minus.svg";
+import { useStore } from "../stores/store";
+import { observer } from "mobx-react-lite";
 
 import {
   Panel,
@@ -10,8 +12,9 @@ import {
 } from "../components";
 
 // New Poll Panel
-export default function NewPoll({ setCreateNewPoll, setPolls }) {
+const NewPoll = observer(({ setCreateNewPoll, setPolls }) => {
   // Get access to store context
+  const store = useStore();
 
   const OPTION_LIMIT = 10;
   const [question, setQuestion] = useState(""); // Question for poll
@@ -98,11 +101,7 @@ export default function NewPoll({ setCreateNewPoll, setPolls }) {
 
   return (
     <Panel>
-      <QuestionInput
-        question={question}
-        setQuestion={setQuestion}
-        invalid={questionInvalid}
-      />
+      <QuestionInput invalid={questionInvalid} store={store} />
       <Seperator />
 
       {/* Display options */}
@@ -146,4 +145,6 @@ export default function NewPoll({ setCreateNewPoll, setPolls }) {
       </div>
     </Panel>
   );
-}
+});
+
+export default NewPoll;
