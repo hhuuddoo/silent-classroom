@@ -459,6 +459,15 @@ a:hover {
   margin-bottom: 1rem;
 }
 
+.poll-title {
+  margin-top: 1rem;
+  padding-top: 0;
+  padding-bottom: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fef8fa;
+}
+
 .poll-result-container {
   display: -webkit-box;
   display: -ms-flexbox;

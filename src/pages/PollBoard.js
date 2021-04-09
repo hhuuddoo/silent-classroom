@@ -1,6 +1,6 @@
 import React from "react";
 import { NewPoll, Poll, PollResults } from "../containers";
-import { AddPollButton } from "../components";
+import { AddPollButton, PollTitle } from "../components";
 import { useStore } from "../store";
 import { observer } from "mobx-react-lite";
 
@@ -10,6 +10,9 @@ const PollBoard = observer(() => {
 
   return (
     <>
+      <div>
+        <PollTitle>{store.pollTitle}</PollTitle>
+      </div>
       <div className="panel-container">
         {/* Display add poll button */}
         {!store.blankPollCreated && (

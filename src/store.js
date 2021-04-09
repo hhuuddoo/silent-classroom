@@ -3,39 +3,10 @@ import * as STATUS from "./constants/poll-status";
 import React from "react";
 
 class PollStore {
-  // variable to store polls
-  polls = [
-    {
-      pollId: 0,
-      status: STATUS.CLOSED,
-      question: "Example Question? (CLOSED)",
-      totalVotes: 8, // Add reference to votes
-      options: [
-        { optionId: 0, option: "Option 1", votes: 3 },
-        { optionId: 1, option: "Option 2", votes: 5 },
-      ],
-    },
-    {
-      pollId: 1,
-      status: STATUS.OPEN,
-      question: "Example Question? (VOTING)",
-      totalVotes: 8,
-      options: [
-        { optionId: 0, option: "Option 1", votes: 3 },
-        { optionId: 1, option: "Option 2", votes: 5 },
-      ],
-    },
-    {
-      pollId: 2,
-      status: STATUS.OPEN,
-      question: "Example Question 2? (VOTING)",
-      totalVotes: 221,
-      options: [
-        { optionId: 0, option: "Option 3", votes: 90 },
-        { optionId: 1, option: "Option 4", votes: 131 },
-      ],
-    },
-  ];
+  // Variable to store polls
+  polls = [];
+
+  pollTitle = "Some Poll Title";
 
   // Whether a new poll is currently being created
   blankPollCreated = false;
