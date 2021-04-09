@@ -22,8 +22,15 @@ class PollStore {
 
   // Adds a blank poll to polls array
   createBlankPoll() {
-    const newPoll = { pollId: this.polls.length, question: "", options: [] };
-    this.polls.push(newPoll);
+    const blankPoll = {
+      pollId: this.polls.length,
+      question: "",
+      options: [
+        { optionId: 0, option: "", votes: 0 },
+        { optionId: 1, option: "", votes: 0 },
+      ],
+    };
+    this.polls.push(blankPoll);
     this.blankPollCreated = true;
   }
 
@@ -36,20 +43,18 @@ class PollStore {
     return this.polls;
   }
 
-  // get poll(pollId) {
-  //   return this.polls.find((poll) => poll.pollId === pollId);
-  // }
-
-  addOption(option, pollId) {
-    const targetPoll = this.polls.find((poll) => poll.pollId === pollId);
-    targetPoll.options.push(option);
+  addNewOption(pollId) {
+    const blankOption = {
+      optionId: this.polls[pollId].options.length,
+      option: "",
+      votes: 0,
+    };
+    console.log(this.polls[pollId]);
+    this.polls[pollId].options.push(blankOption);
   }
 
   setQuestion(question, pollId) {
-    const targetPollIndex = this.polls.findIndex(
-      (poll) => poll.pollId === pollId
-    );
-    this.polls[targetPollIndex].question = question;
+    this.polls[pollId].question = question;
   }
 }
 

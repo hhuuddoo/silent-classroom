@@ -15,6 +15,8 @@ import {
 const NewPoll = observer(({ setCreateNewPoll, setPolls }) => {
   // Get access to store context
   const store = useStore();
+  // Get this polls unique id
+  const pollId = store.blankPollId;
 
   const OPTION_LIMIT = 10;
   const [question, setQuestion] = useState(""); // Question for poll
@@ -101,7 +103,7 @@ const NewPoll = observer(({ setCreateNewPoll, setPolls }) => {
 
   return (
     <Panel>
-      <QuestionInput invalid={questionInvalid} store={store} />
+      <QuestionInput invalid={questionInvalid} store={store} pollId={pollId} />
       <Seperator />
 
       {/* Display options */}
@@ -123,7 +125,7 @@ const NewPoll = observer(({ setCreateNewPoll, setPolls }) => {
           className={`button--option-list ${
             numberOfOptions < OPTION_LIMIT ? `` : `disabled`
           }`}
-          onClick={addOption}
+          onClick={() => store.addNewOption(pollId)}
         />
         <Minus
           className={`button--option-list ${

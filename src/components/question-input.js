@@ -2,9 +2,7 @@ import React from "react";
 import { observer } from "mobx-react-lite";
 
 // Input for entering questions
-const QuestionInput = observer(({ invalid, store }) => {
-  // Get this question inputs poll id
-  const pollId = store.blankPollId;
+const QuestionInput = observer(({ invalid, store, pollId }) => {
   return (
     <input
       className={`input input--question ${invalid ? `invalid` : ``}`}
