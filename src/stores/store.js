@@ -16,7 +16,7 @@ class PollStore {
     },
     {
       pollId: 1,
-      status: STATUS.VOTING,
+      status: STATUS.OPEN,
       question: "Example Question? (VOTING)",
       options: [
         { optionId: 1, option: "Option 1", votes: 3 },
@@ -89,6 +89,16 @@ class PollStore {
   // Set the question of a given poll
   setQuestion(question, pollId) {
     this.polls[pollId].question = question;
+  }
+
+  // Get all completed polls
+  get completedPolls() {
+    return this.polls.filter((poll) => poll.status === STATUS.CLOSED);
+  }
+
+  // Get all open polls
+  get openPolls() {
+    return this.polls.filter((poll) => poll.status === STATUS.OPEN);
   }
 }
 
