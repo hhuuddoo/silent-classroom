@@ -21,7 +21,11 @@ const PollBoard = observer(() => {
         {store.blankPollCreated && <NewPoll />}
 
         {/* Display poll results */}
-        <PollResults question="What is 0 + 1" />
+        {store.completedPolls.map((poll) => (
+          <PollResults question={poll.question} options={poll.options} />
+        ))}
+
+        {/* <PollResults question="What is 0 + 1" /> */}
 
         {/* Display polls */}
         {polls.map(({ question, options }, idx) => {

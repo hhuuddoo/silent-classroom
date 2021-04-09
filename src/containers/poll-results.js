@@ -2,7 +2,7 @@ import React from "react";
 import { Panel, Question, Seperator, PollOptionResult } from "../components";
 
 // Display poll results
-export default function PollResults({ question, optionResults }) {
+export default function PollResults({ question, options }) {
   return (
     <Panel>
       <Question>{question}</Question>
@@ -16,6 +16,12 @@ export default function PollResults({ question, optionResults }) {
           votes={votes}
         />;
       })} */}
+
+      {options.map(({ optionId, option, votes }) => {
+        return (
+          <PollOptionResult key={optionId} option={option} votes={votes} />
+        );
+      })}
 
       <PollOptionResult option="0" percentage="30" votes="3" />
       <PollOptionResult option="1" percentage="30" votes="6" />
