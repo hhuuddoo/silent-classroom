@@ -7,8 +7,6 @@ import { observer } from "mobx-react-lite";
 const PollBoard = observer(() => {
   // Access store context
   const store = useStore();
-
-  const [createNewPoll, setCreateNewPoll] = useState(false);
   const [polls, setPolls] = useState([]);
 
   return (
@@ -20,9 +18,7 @@ const PollBoard = observer(() => {
         )}
 
         {/* Display new poll panel */}
-        {store.blankPollCreated && (
-          <NewPoll setCreateNewPoll={setCreateNewPoll} setPolls={setPolls} />
-        )}
+        {store.blankPollCreated && <NewPoll />}
 
         {/* Display poll results */}
         <PollResults question="What is 0 + 1" />

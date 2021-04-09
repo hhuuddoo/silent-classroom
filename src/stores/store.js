@@ -6,7 +6,7 @@ class PollStore {
   polls = [
     {
       pollId: 0,
-      question: "My Question",
+      question: "Example Question?",
       options: [
         { optionId: 1, option: "Option 1", votes: 3 },
         { optionId: 2, option: "Option 2", votes: 5 },
@@ -35,6 +35,7 @@ class PollStore {
     this.blankPollCreated = true;
   }
 
+  // Cancel the creation of a new poll
   cancelBlankPoll() {
     if (this.blankPollCreated) {
       this.blankPollCreated = false;
