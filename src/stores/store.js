@@ -27,6 +27,11 @@ class PollStore {
     this.blankPollCreated = true;
   }
 
+  get blankPollId() {
+    if (!this.blankPollCreated) return -1;
+    return this.polls.length - 1;
+  }
+
   get getPolls() {
     return this.polls;
   }
@@ -44,11 +49,7 @@ class PollStore {
     const targetPollIndex = this.polls.findIndex(
       (poll) => poll.pollId === pollId
     );
-    console.log(this.polls[targetPollIndex].question);
     this.polls[targetPollIndex].question = question;
-
-    // targetPoll.question = question;
-    console.log(`TARGET POLL QUESTION ${question}`);
   }
 }
 
