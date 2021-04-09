@@ -1,4 +1,5 @@
 import { makeAutoObservable } from "mobx";
+import * as STATUS from "../constants/poll-status";
 import React from "react";
 
 class PollStore {
@@ -6,7 +7,17 @@ class PollStore {
   polls = [
     {
       pollId: 0,
-      question: "Example Question?",
+      status: STATUS.CLOSED,
+      question: "Example Question? (CLOSED)",
+      options: [
+        { optionId: 1, option: "Option 1", votes: 3 },
+        { optionId: 2, option: "Option 2", votes: 5 },
+      ],
+    },
+    {
+      pollId: 1,
+      status: STATUS.VOTING,
+      question: "Example Question? (VOTING)",
       options: [
         { optionId: 1, option: "Option 1", votes: 3 },
         { optionId: 2, option: "Option 2", votes: 5 },

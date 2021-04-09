@@ -25,11 +25,8 @@ const NewPoll = observer(() => {
   // Handle Create Poll button press
   const handleCreatePollClick = () => {
     // Remove all empty options
-
     // Check if poll question is valid
-
     // Close new poll panel
-    setCreateNewPoll(false);
   };
 
   return (
