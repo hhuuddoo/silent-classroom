@@ -22,6 +22,7 @@ const PollBoard = observer(() => {
         {/* Display poll results */}
         {store.completedPolls.map((poll) => (
           <PollResults
+            key={poll.pollId}
             question={poll.question}
             options={poll.options}
             totalVotes={poll.totalVotes}
