@@ -8,6 +8,7 @@ export default function PollOptionInput({ id, pollOptions, setPollOptions }) {
         className={`input input--option`}
         value={pollOptions.id}
         placeholder="Enter poll option..."
+        type="text"
         onChange={({ target }) =>
           setPollOptions((prev) => {
             if (target.value.trim() !== "") {

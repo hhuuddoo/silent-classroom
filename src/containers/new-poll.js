@@ -11,6 +11,8 @@ import {
 
 // New Poll Panel
 export default function NewPoll({ setCreateNewPoll, setPolls }) {
+  // Get access to store context
+
   const OPTION_LIMIT = 10;
   const [question, setQuestion] = useState(""); // Question for poll
   const [questionInvalid, setQuestionInvalid] = useState(false); // If question is invalid

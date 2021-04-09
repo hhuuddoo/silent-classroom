@@ -1,14 +1,11 @@
 import React from "react";
 import { ReactComponent as Add } from "../images/add.svg";
 
-export default function AddPollButton({ createNewPoll, setCreateNewPoll }) {
+export default function AddPollButton({ handleNewPoll }) {
   return (
-    <div
-      className={`add-poll ${createNewPoll ? `active` : ``}`}
-      onClick={() => setCreateNewPoll((prev) => !prev)}
-    >
+    <div className="add-poll" onClick={handleNewPoll}>
       <Add />
-      <span className="hide-on-mobile">Add Poll</span>
+      <span>Add Poll</span>
     </div>
   );
 }

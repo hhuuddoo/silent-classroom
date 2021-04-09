@@ -1,8 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { NewPoll, Poll, PollResults } from "../containers";
 import { AddPollButton } from "../components";
+import { useStore } from "../stores/store";
+import { observer } from "mobx-react-lite";
 
-export default function PollBoard() {
+const PollBoard = observer(() => {
+  // Access store context
+  const store = useStore();
+
   const [createNewPoll, setCreateNewPoll] = useState(false);
   const [polls, setPolls] = useState([]);
 
@@ -10,13 +15,12 @@ export default function PollBoard() {
     <>
       <div className="panel-container">
         {/* Display add poll button */}
-        <AddPollButton
-          createNewPoll={createNewPoll}
-          setCreateNewPoll={setCreateNewPoll}
-        />
+        {!store.blankPollCreated && (
+          <AddPollButton handleNewPoll={() => store.createBlankPoll()} />
+        )}
 
         {/* Display new poll panel */}
-        {createNewPoll && (
+        {store.blankPollCreated && (
           <NewPoll setCreateNewPoll={setCreateNewPoll} setPolls={setPolls} />
         )}
 
@@ -30,11 +34,13 @@ export default function PollBoard() {
               question={question}
               options={options}
               key={idx}
-              pollId={idx}
+              pollId={idx} // CHANGE TO POLL ID FROM FIREBASE
             />
           );
         })}
       </div>
     </>
   );
-}
+});
+
+export default PollBoard;

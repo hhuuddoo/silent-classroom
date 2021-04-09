@@ -336,94 +336,45 @@ a:hover {
 }
 
 .add-poll {
-  position: fixed;
-  background-color: #589cec;
-  height: 2rem;
-  width: 2rem;
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  border-radius: 50%;
-  -webkit-box-shadow: 0 8px 12px rgba(0, 0, 0, 0.75);
-          box-shadow: 0 8px 12px rgba(0, 0, 0, 0.75);
-  bottom: 0;
-  left: 50%;
-  margin-bottom: 1rem;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-  border: 2px solid #589cec;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   cursor: pointer;
   -webkit-transition: background-color 100ms ease-out, fill 100ms ease-out;
   transition: background-color 100ms ease-out, fill 100ms ease-out;
+  bottom: 0;
+  left: 0;
+  -webkit-transform: none;
+          transform: none;
+  width: 100%;
+  height: 2.125rem;
+  border-radius: 0.625rem;
+  max-width: 31.25rem;
+  margin: 1rem auto;
+  background-color: #14191f;
+  padding: 0.5rem 1rem;
+  border: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  color: #fef8fa;
+  font-weight: 700;
 }
 
 .add-poll svg {
-  height: 1.714rem;
-  width: 1.714rem;
+  height: 1.5rem;
+  width: 1.5rem;
   fill: #fef8fa;
-  -webkit-transition: -webkit-transform 100ms ease-in;
-  transition: -webkit-transform 100ms ease-in;
-  transition: transform 100ms ease-in;
-  transition: transform 100ms ease-in, -webkit-transform 100ms ease-in;
 }
 
-.add-poll:hover, .add-poll.active {
-  background-color: #14191f;
-}
-
-.add-poll:hover svg, .add-poll.active svg {
-  fill: #589cec;
-}
-
-.add-poll.active svg {
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
-}
-
-@media (min-width: 40em) {
-  .add-poll {
-    position: relative;
-    -webkit-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: flex-start;
-    bottom: 0;
-    left: 0;
-    -webkit-transform: none;
-            transform: none;
-    width: 100%;
-    height: 2.125rem;
-    border-radius: 0.625rem;
-    max-width: 31.25rem;
-    margin: 1rem auto;
-    background-color: #14191f;
-    padding: 0.5rem 1rem;
-    border: none;
-    -webkit-box-shadow: none;
-            box-shadow: none;
-    color: #fef8fa;
-    font-weight: 700;
-  }
-  .add-poll svg {
-    height: 1.5rem;
-    width: 1.5rem;
-  }
-  .add-poll:hover, .add-poll.active {
-    background-color: #41434a;
-  }
-  .add-poll:hover svg, .add-poll.active svg {
-    fill: #fef8fa;
-    -webkit-transform: none;
-            transform: none;
-  }
-  .add-poll.active {
-    display: none;
-  }
+.add-poll:hover {
+  background-color: #41434a;
 }
 
 .question {
