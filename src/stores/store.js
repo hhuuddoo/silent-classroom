@@ -63,6 +63,11 @@ class PollStore {
     this.polls[pollId].options.push(blankOption);
   }
 
+  // Set value of poll option
+  setPollOption(option, optionId, pollId) {
+    this.polls[pollId].options[optionId].option = option;
+  }
+
   // Remove most recent poll option from a given poll
   removePollOption(pollId) {
     console.log(this.polls[pollId].options.pop());

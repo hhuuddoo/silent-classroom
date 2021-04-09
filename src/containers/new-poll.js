@@ -85,41 +85,22 @@ const NewPoll = observer(({ setCreateNewPoll, setPolls }) => {
     }
   }, [numberOfOptions, optionUpdateType]);
 
-  // Handle add poll option button press
-  const addOption = () => {
-    if (numberOfOptions < OPTION_LIMIT) {
-      setNumberOfOptions((prev) => prev + 1);
-      setOptionUpdateType("ADD");
-    }
-  };
-
-  // Handle remove poll option button press
-  const removeOption = () => {
-    if (numberOfOptions > 2) {
-      setNumberOfOptions((prev) => prev - 1);
-      setOptionUpdateType("REMOVE");
-    }
-  };
-
   return (
     <Panel>
       <QuestionInput invalid={questionInvalid} store={store} pollId={pollId} />
       <Seperator />
-
-      {/* Display options */}
-      {optionList.options.map((option, idx) => {
+      {/* Display poll options */}
+      {store.polls[pollId].options.map((option) => {
         return (
           <PollOptionInput
-            id={option}
-            key={idx}
-            pollOptions={pollOptions}
-            setPollOptions={setPollOptions}
+            key={option.optionId}
+            optionId={option.optionId}
+            pollId={pollId}
+            store={store}
           />
         );
       })}
-
       <Seperator />
-
       <div className="poll-buttons-container">
         {/* Add Poll Option Button */}
         <Add
@@ -128,7 +109,7 @@ const NewPoll = observer(({ setCreateNewPoll, setPolls }) => {
           }`}
           onClick={() => store.newPollOption(pollId)}
         />
-
+        {/* Remove poll option button */}
         <Minus
           className={`button--option-list ${
             numberOfOptions <= 2 ? `disabled` : ``
@@ -137,6 +118,7 @@ const NewPoll = observer(({ setCreateNewPoll, setPolls }) => {
         />
 
         <div className="right">
+          {/* Cancel poll creation button */}
           <span
             className="button hide-on-mobile"
             // onClick={() => setCreateNewPoll(false)}
@@ -144,6 +126,9 @@ const NewPoll = observer(({ setCreateNewPoll, setPolls }) => {
           >
             Cancel
           </span>
+
+          {/* CHANGE TO MOBX */}
+          {/* Create poll button */}
           <span className="button button--cta" onClick={handleCreatePollClick}>
             Create Poll
           </span>
