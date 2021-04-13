@@ -3,6 +3,9 @@ import * as STATUS from "./constants/poll-status";
 import React from "react";
 
 class PollStore {
+  MAX_POLLS = 10;
+  MIN_POLLS = 2;
+
   // Variable to store polls
   polls = [];
 
@@ -53,6 +56,7 @@ class PollStore {
 
   // Add a new poll option to a given poll
   newPollOption(pollId) {
+    if (this.polls[pollId].options.length >= this.MAX_POLLS) return;
     const blankOption = {
       optionId: this.polls[pollId].options.length,
       option: "",
@@ -68,10 +72,11 @@ class PollStore {
 
   // Remove most recent poll option from a given poll
   removePollOption(pollId) {
+    if (this.polls[pollId].options.length <= this.MIN_POLLS) return;
     this.polls[pollId].options.pop();
   }
 
-  // Change blank poll status to open
+  // Open poll for voting
   addNewPoll(pollId) {
     this.blankPollCreated = false;
     this.polls[pollId].options = this.polls[pollId].options.filter(
